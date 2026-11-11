@@ -8,7 +8,7 @@ import testBase.BaseClass;
 public class HomePageTest extends BaseClass{
 	
 	HomePage hp;
-	@Test
+	@Test(groups = {"Sanity","Regression"})
 	void HomePageVerify() throws InterruptedException {
 		hp = new HomePage(driver);
 		hp.mainLogo();

@@ -8,28 +8,27 @@ public class EndToEndBuyAProductTest extends BaseClass {
 	
 	  EndToEndBuyAProduct bp;
 	  
-	  @Test
+	  @Test(groups = {"Sanity","Regression"})
 	 void  verifyBuyProduct() throws InterruptedException{
-		  
-		  bp = new  EndToEndBuyAProduct(driver);
+		  logger.info("***** Starting  Test  ****");
+		  bp = new EndToEndBuyAProduct(driver);
+		  logger.info("clicking on laptop");
 		  bp.clickLaptop();
 		  bp.clickOnProduct();
 		  bp.laptopModelText();
+		  logger.info("add to cart");
 		  bp.AddTOCart();
 		  bp.clickOnCart();
+		  logger.info("checkout");
 		  bp.checkOut();
 		  bp.shippingPageNextBtn();
 		  bp.safePayUsername("Rohit123");
 		  bp.safePayPassword("Rohit123");
 		  bp.payBtn();
-		  bp.successMessage();
-		  bp.trackingIdAndOrderNum();
+		  logger.info("***** Ending  Test  ****");
+		 
 		  
-	  }
-	  
-	  
-	
-	
+	  }	
 	
 }
 

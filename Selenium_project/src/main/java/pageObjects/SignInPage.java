@@ -1,6 +1,9 @@
 package pageObjects;
+import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SignInPage {
 	public WebDriver driver;
@@ -15,7 +18,8 @@ public class SignInPage {
 	By signIn = By.xpath("(//button[normalize-space()='SIGN IN'])[1]");
 	
 	public void signupLogo() {
-		driver.findElement(signupLogo).click();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    wait.until(ExpectedConditions.elementToBeClickable(signupLogo)).click();
 	}
 	public void userName(String user) {
 		driver.findElement(userName).sendKeys(user);
@@ -24,7 +28,8 @@ public class SignInPage {
 		driver.findElement(password).sendKeys(pass);
 	}
 	
-	public void checkbox() {
+	public void checkbox() throws InterruptedException {
+		Thread.sleep(3000);
 		driver.findElement(checkbox).click();
 	}
 	public void signIn() throws InterruptedException {

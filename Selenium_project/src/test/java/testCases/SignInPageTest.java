@@ -5,7 +5,7 @@ import testBase.BaseClass;
 
 public class SignInPageTest extends BaseClass{
  public SignInPage lp;
- @Test
+ @Test(groups ={"Sanity","Regression"})
 
  void signIn() throws InterruptedException {
 	 lp = new SignInPage(driver);

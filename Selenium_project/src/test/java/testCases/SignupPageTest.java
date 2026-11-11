@@ -9,7 +9,7 @@ public class SignupPageTest  extends BaseClass {
 
 	SignupPage sp;
 	
-	@Test 
+	@Test (groups = "Regression")
 	void signupPage() throws InterruptedException {
 		 sp = new SignupPage(driver);
 		sp.signupLogo();
