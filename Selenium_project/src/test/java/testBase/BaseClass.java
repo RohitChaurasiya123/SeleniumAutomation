@@ -8,13 +8,17 @@ import java.util.Date;
 import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -45,6 +49,12 @@ public class BaseClass {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("document.body.style.zoom='80%'");
     }
+  
+    public WebElement waitForElementVisible(By locator, int timeout) {
+      WebDriverWait wait = new WebDriverWait( driver, Duration.ofSeconds(timeout));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+    
     public String captureScreen(String tname) throws IOException {
 
         String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());

@@ -28,7 +28,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 	        By trackingIdAndOrderNum = By.xpath("//p[@class='roboto-regular ng-binding']");
 	        
 	    public void  clickLaptop() {
-	    	driver.findElement(clickLaptop).click();
+	    	WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(15));
+	    	wait.until(ExpectedConditions.invisibilityOfElementLocated( By.cssSelector("div.PopUp")));
+	    	WebElement laptop = wait.until(ExpectedConditions.elementToBeClickable(clickLaptop));
+	    	 laptop.click();
 	    }
 	    public void clickOnProduct() {
 	    	driver.findElement(clickOnProduct).click();

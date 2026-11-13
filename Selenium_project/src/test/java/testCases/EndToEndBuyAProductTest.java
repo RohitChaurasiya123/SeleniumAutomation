@@ -3,6 +3,7 @@ package testCases;
 import org.testng.annotations.Test;
 import pageObjects.EndToEndBuyAProduct;
 import testBase.BaseClass;
+import utilities.LoginHelper;
 
 public class EndToEndBuyAProductTest extends BaseClass {
 	
@@ -11,6 +12,13 @@ public class EndToEndBuyAProductTest extends BaseClass {
 	  @Test(groups = {"Sanity","Regression"})
 	 void  verifyBuyProduct() throws InterruptedException{
 		  logger.info("***** Starting  Test  ****");
+		  
+		  LoginHelper login = new LoginHelper(driver);
+
+	        login.loginAsUser(
+	            p.getProperty("username"),
+	            p.getProperty("password")
+	        );
 		  bp = new EndToEndBuyAProduct(driver);
 		  logger.info("clicking on laptop");
 		  bp.clickLaptop();

@@ -6,19 +6,13 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <parameter name="os" value="windows"/>
-    <parameter name="browser" value="chrome"/>
+    <parameter name="browser" value="edge"/>
     <groups>
       <run>
         <include name="Sanity"/>
       </run>
     </groups>
     <classes>
-      <class name="testCases.EndToEndBuyAProductTest">
-        <methods>
-          <include name="verifyBuyProduct"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- testCases.EndToEndBuyAProductTest -->
       <class name="testCases.HomePageTest">
         <methods>
           <include name="HomePageVerify"/>

@@ -1,44 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite thread-count="2" parallel="tests" name="Failed suite [FailedTestsParallelSuite]" guice-stage="DEVELOPMENT">
-  <test thread-count="2" parallel="tests" name="FailedTests_Edge(failed)">
+<suite name="Failed suite [Grouping Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="utilities.ExtentReportManager"/>
+  </listeners>
+  <test thread-count="5" name="Test(failed)">
     <parameter name="os" value="windows"/>
     <parameter name="browser" value="edge"/>
+    <groups>
+      <run>
+        <include name="Sanity"/>
+      </run>
+    </groups>
     <classes>
       <class name="testCases.HomePageTest">
         <methods>
-          <include name="tearDown"/>
           <include name="HomePageVerify"/>
           <include name="setup"/>
         </methods>
       </class> <!-- testCases.HomePageTest -->
-      <class name="testCases.EndToEndBuyAProductTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="verifyBuyProduct"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- testCases.EndToEndBuyAProductTest -->
     </classes>
-  </test> <!-- FailedTests_Edge(failed) -->
-  <test thread-count="2" parallel="tests" name="FailedTests_Chrome(failed)">
-    <parameter name="os" value="windows"/>
-    <parameter name="browser" value="chrome"/>
-    <classes>
-      <class name="testCases.SignupPageTest">
-        <methods>
-          <include name="signupPage"/>
-          <include name="tearDown"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- testCases.SignupPageTest -->
-      <class name="testCases.SignInPageTest">
-        <methods>
-          <include name="signIn"/>
-          <include name="tearDown"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- testCases.SignInPageTest -->
-    </classes>
-  </test> <!-- FailedTests_Chrome(failed) -->
-</suite> <!-- Failed suite [FailedTestsParallelSuite] -->
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Grouping Suite] -->
